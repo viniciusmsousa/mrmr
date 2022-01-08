@@ -12,7 +12,6 @@ tqdm = "^4.62.3"
 joblib = "^1.1.0"
 pandas = ">=1.0.3"
 numpy = ">=1.18.1"
-sklearn = "^0.0"
 category-encoders = "^2.3.0"
 pyspark = "^3.2.0"
 
