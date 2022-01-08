@@ -1,7 +1,6 @@
-<p align="center">
-<img src="./docs/img/mrmr_logo_white_bck.png" alt="drawing" width="450"/>
-</p>
+# Spark mRMR
 
+This package is a fork from the [mRmR project](https://github.com/smazzanti/mrmr) that kept only the pandas and spark implementation and made it availiable um PyPi.  
 ## What is mRMR
 
 *mRMR*, which stands for "minimum Redundancy - Maximum Relevance", is a feature selection algorithm.
@@ -31,18 +30,14 @@ in a relatively small amount of time.
 For instance, in **2019**, **Uber** engineers published a paper describing how they implemented 
 *mRMR* in their marketing machine learning platform [Maximum Relevance and Minimum Redundancy Feature Selection Methods for a Marketing Machine Learning Platform](https://eng.uber.com/research/maximum-relevance-and-minimum-redundancy-feature-selection-methods-for-a-marketing-machine-learning-platform/).
 
+
 ## How to install this package
 
 You can install this package in your environment via pip:
 
-<pre>
+```
 pip install git+https://github.com/smazzanti/mrmr
-</pre>
-
-Alternatively, if you want to add it to a "requirements.txt" file, you can paste this line into the txt file:
-<pre>
-git+https://github.com/smazzanti/mrmr@main#egg=mrmr
-</pre>
+```
 
 ## How to use this package
 
@@ -51,7 +46,6 @@ This package is designed to do *mMRM* selection through different tools, dependi
 Currently, the following tools are supported (others will be added):
 - **Pandas** (in-memory)
 - **Spark**
-- **Google BigQuery**
 
 The package has a module for each supported tool. Each module has *at least* these 2 functions:
 - `mrmr_classif`, for feature selection when the target variable is categorical (binary or multiclass).
@@ -95,24 +89,6 @@ df_spark = session.createDataFrame(data=data, schema=columns)
 import mrmr
 selected_features = mrmr.spark.mrmr_regression(df=df_spark, target_column="target", K=2)
 ```
-
-#### 3. Google BigQuery example
-
-```python
-# initialize BigQuery client
-from google.cloud.bigquery import Client
-bq_client = Client(credentials=your_credentials)
-
-# select top 20 features using mRMR
-import mrmr
-selected_features = mrmr.bigquery.mrmr_regression(
-    bq_client=bq_client,
-    table_id='bigquery-public-data.covid19_open_data.covid19_open_data',
-    target_column='new_deceased',
-    K=20
-)
-```
-
 
 ## Reference
 
