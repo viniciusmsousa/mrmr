@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "mrmr"
+version = "0.1.0"
+description = "minimum-Redundancy-Maximum-Relevance algorithm for feature selection"
+authors = ["vinicius.sousa <vinisousa04@gmail.com>"]
+license = "GPL-3.0-only"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+Jinja2 = "^3.0.3"
+tqdm = "^4.62.3"
+joblib = "^1.1.0"
+pandas = ">=1.0.3"
+numpy = ">=1.18.1"
+sklearn = "^0.0"
+category-encoders = "^2.3.0"
+pyspark = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+jupyter = "^1.0.0"
+notebook = "^6.4.6"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
